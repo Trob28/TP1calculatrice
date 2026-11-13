@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
             "7", "8", "9", "×",
             "4", "5", "6", "-",
             "1", "2", "3", "+",
-            "±", "0", ".", "="
+            "±", "0", "^", "="
         )
         val marge = (6 * resources.displayMetrics.density).toInt()
 
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             fond.setColor(
                 Color.parseColor(
                     when (t) {
-                        "÷", "×", "-", "+", "%" -> "#388E2A"
+                        "÷", "×", "-", "+", "%","^" -> "#388E2A"
                         "=" -> "#3478F6"
                         else -> "#1A1A1A"
                     }
@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity() {
             "-" -> choisirOperation('-', "-")
             "+" -> choisirOperation('+', "+")
             "%" -> choisirOperation('%', "%")
+            "^" -> choisirOperation('^', "^")
             "=" -> calculer()
             else -> champActif().append(t)
         }
@@ -137,6 +138,7 @@ class MainActivity : AppCompatActivity() {
             '*' -> a * b
             '/' -> a / b
             '%' -> a % b
+            '^' -> Math.pow(a, b)
             else -> return
         }
 
